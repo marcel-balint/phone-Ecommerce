@@ -5,10 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <h2>Testing</h2>
-      <span className="fas fa-home"></span>
-    </div>
+    <React.Fragment>
+      <h2>The app</h2>
+    </React.Fragment>
   );
 }
 
