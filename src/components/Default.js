@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-
-class Navbar extends Component {
+class Default extends Component {
   render() {
     return (
       <div>
-        <h3>The Navbar</h3>
+        <h3>Page not found.</h3>
       </div>
     );
   }
 }
 
-export default Navbar;
+export default Default;
