@@ -16,8 +16,22 @@ class Product extends Component {
                 alt="product"
                 className="card-img-top"
               ></img>
-              <button className="cart-btn"></button>
             </Link>
+            <button
+              className="cart-btn"
+              disabled={this.props.product.inCart ? true : false}
+              onClick={() => {
+                console.log("in cart");
+              }}
+            >
+              {this.props.product.inCart ? (
+                <p className="text-capitalize mb-0" disabled>
+                  in cart
+                </p>
+              ) : (
+                <i className="fas fa-cart-plus"></i>
+              )}
+            </button>
           </div>
         </div>
       </ProductWrapper>
