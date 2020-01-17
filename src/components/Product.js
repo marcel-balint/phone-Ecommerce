@@ -27,6 +27,7 @@ class Product extends Component {
                   disabled={this.props.product.inCart ? true : false}
                   onClick={() => {
                     value.addToCart(this.props.product.id);
+                    value.openModal(this.props.product.id);
                   }}
                 >
                   {this.props.product.inCart ? (
