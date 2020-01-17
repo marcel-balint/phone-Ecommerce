@@ -9,7 +9,7 @@ export const ButtonContainer = styled.button`
   border-radius: 4px;
   border-width: 0.125rem;
   border-style: solid;
-  color: #fff;
+  color: ${props => (props.cart ? "#000" : "#fff")};
   &:hover {
     background-color: rgb(60, 200, 255);
     color: #000;
