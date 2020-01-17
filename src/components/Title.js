@@ -1,6 +1,6 @@
 import React from "react";
 
-function Title(props) {
+const Title = props => {
   return (
     <div className="row">
       <div className="col-10 mx-auto my-2 text-center">
@@ -8,6 +8,6 @@ function Title(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Title;
