@@ -2,37 +2,44 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { ProductConsumer } from "../context";
 
 class Product extends Component {
-  //const {id , title, img, price, inCart} = this.props.product;
   render() {
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
-          <div className="img-container p-5" onClick={console.log("clicked")}>
-            <Link to="/details">
-              <img
-                src={this.props.product.img}
-                alt="product"
-                className="card-img-top"
-              ></img>
-            </Link>
-            <button
-              className="card-btn"
-              disabled={this.props.product.inCart ? true : false}
-              onClick={() => {
-                console.log("in cart");
-              }}
-            >
-              {this.props.product.inCart ? (
-                <p className="text-capitalize mb-0" disabled>
-                  in cart
-                </p>
-              ) : (
-                <i className="fas fa-cart-plus"></i>
-              )}
-            </button>
-          </div>
+          <ProductConsumer>
+            {value => (
+              <div
+                className="img-container p-5"
+                onClick={() => value.handleDetail(this.props.product.id)}
+              >
+                <Link to="/details">
+                  <img
+                    src={this.props.product.img}
+                    alt="product"
+                    className="card-img-top"
+                  ></img>
+                </Link>
+                <button
+                  className="card-btn"
+                  disabled={this.props.product.inCart ? true : false}
+                  onClick={() => {
+                    value.addToCart(this.props.product.id);
+                  }}
+                >
+                  {this.props.product.inCart ? (
+                    <p className="text-capitalize mb-0" disabled>
+                      in cart
+                    </p>
+                  ) : (
+                    <i className="fas fa-cart-plus"></i>
+                  )}
+                </button>
+              </div>
+            )}
+          </ProductConsumer>
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center title mb-0 ">
               {this.props.product.title}

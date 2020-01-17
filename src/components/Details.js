@@ -43,7 +43,9 @@ class Details extends Component {
                       <p className="text-muted lead">{info}</p>
                       <div>
                         <Link to="/">
-                          <ButtonContainer cart>back</ButtonContainer>
+                          <ButtonContainer cart style={{ marginRight: 10 }}>
+                            back
+                          </ButtonContainer>
                         </Link>
                         <ButtonContainer
                           cart
