@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ButtonContainer } from "./Button";
+import { ProductConsumer } from "../context";
 
 class Navbar extends Component {
   render() {
@@ -37,7 +38,16 @@ class Navbar extends Component {
         <Link to="/cart" className="ml-auto">
           <ButtonContainer>
             <span className="mr-2">
-              <i className="fas fa-cart-plus"> Cart</i>
+              <i className="fas fa-cart-plus">
+                <ProductConsumer>
+                  {value => {
+                    const { cart } = value;
+                    if (cart.length > 0) {
+                      return <span> {cart.length}</span>;
+                    }
+                  }}
+                </ProductConsumer>
+              </i>
             </span>
           </ButtonContainer>
         </Link>
