@@ -74,6 +74,7 @@ class ProductProvider extends Component {
   increment = id => {};
 
   decrement = id => {};
+
   removeItem = id => {};
 
   clearCart = () => {};
